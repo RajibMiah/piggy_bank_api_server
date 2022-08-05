@@ -1,7 +1,3 @@
-
-
-from dataclasses import fields
-
 from rest_framework import serializers
 
 from accounts.models import Categories, Currency, Transaction
@@ -26,7 +22,6 @@ class WriteOnlyTransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = (
-           
             "amount",
             "currency",
             "date",
@@ -38,7 +33,7 @@ class WriteOnlyTransactionSerializer(serializers.ModelSerializer):
 class ReadOnlyTransactionSerializer(serializers.ModelSerializer):
     
     currency = CurrencySerializer()
-    
+    category = CategorySerializer()
     class Meta:
         model = Transaction
         fields = (
