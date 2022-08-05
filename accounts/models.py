@@ -24,7 +24,7 @@ class Categories(models.Model):
         return self.name
 
 class Transaction(models.Model):
-    amonut = models.DecimalField(max_digits=32 , decimal_places=2)
+    amount = models.DecimalField(max_digits=32 , decimal_places=2)
     currency = models.ForeignKey(Currency , on_delete=models.PROTECT , related_name='transactions')
     date = models.DateTimeField()
     description = models.TextField(blank=True)
